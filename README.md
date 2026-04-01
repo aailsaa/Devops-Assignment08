@@ -18,8 +18,8 @@ VPC, private subnets, public subnets, all necessary routes (use modules!)
 paste in your terminal:
 
 cd packer
-packer init docker-ami-arm64.pkr.hcl
-packer build docker-ami-arm64.pkr.hcl
+packer init docker-ami.pkr.hcl
+packer build docker-ami.pkr.hcl
 
 you will get lots of output like this:
 
