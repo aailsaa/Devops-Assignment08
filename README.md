@@ -105,9 +105,18 @@ Install ansible with the following commands inside the controller instance:
 sudo apt update
 sudo apt install ansible -y
 
-### 6. Run playbook
 
-Now you should be able to run the playbook with the following command:
+### 6. Connect to all nodes manually
+
+In order to run the playbook you must first connect to each instance from the controller so that when you run the playbook you have accepted the instance. 
+
+### 7. Run playbook
+
+Now you should be able to ping your nodes with the following:
+
+ansible all -i ansible_hosts -m ping
+
+and run the playbook with the following command:
 
 ansible-playbook -i ansible_hosts ansible_playbook.yml
 
