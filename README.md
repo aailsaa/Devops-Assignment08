@@ -76,3 +76,48 @@ You should now be connected to the private instance. Docker should be available:
 
 
 
+## Assignment 11 instructions:
+
+### 1. Setup key pair / other personal info
+
+first, create a new key pair (it makes it easier to also move it into this repo). In the main script, change the key name for all instances to the name of your key. You will also need to change the ip inside the cidr block in the ingress of the bastion security group to your ip.
+
+### 2. Initialize terraform
+
+in the terraform folder initialize and apply terraform. After applying terraform your output should be printed: write down the ips provided.
+
+### 3. Set up IPs in ansible_hosts
+
+Update the ansible_hosts file with the provided IPs from terraform apply. make sure that the correct instances are under the correct categories.
+
+### 4. Connect to Ansible Controller and copy files
+
+First, copy your ansible hosts, playbook, and pem file to your bastion instance using scp. (I know this is not secure but this is what i did...) We must do this first because we can't directly access the controller instance. 
+
+After copying your files, ssh into your bastion instance. Once inside, ssh into your controller instance for the first time, exit back to the bastion, and copy the same 3 files to the controller. 
+
+Finally, once all files are copied, SSH back into your controller instance. 
+
+### 5. Install Ansible
+
+Install ansible with the following commands inside the controller instance:
+
+sudo apt update
+sudo apt install ansible -y
+
+### 6. Run playbook
+
+Now you should be able to run the playbook with the following command:
+
+ansible-playbook -i ansible_hosts ansible_playbook.yml
+
+
+
+
+
+
+
+
+
+
+
